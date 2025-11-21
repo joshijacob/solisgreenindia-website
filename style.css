@@ -1,752 +1,819 @@
-/* Reset and Base Styles */
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-:root {
-    --primary-color: #2E7D32;
-    --secondary-color: #4CAF50;
-    --accent-color: #FFC107;
-    --text-color: #333;
-    --light-bg: #f9f9f9;
-    --white: #ffffff;
-    --shadow: 0 2px 10px rgba(0,0,0,0.1);
-    --border-radius: 8px;
-}
-
-html {
-    scroll-behavior: smooth;
-}
-
-body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.6;
-    color: var(--text-color);
-    background-color: var(--white);
-}
-
-/* Typography */
-h1, h2, h3, h4, h5, h6 {
-    margin-bottom: 1rem;
-    line-height: 1.2;
-    color: var(--primary-color);
-}
-
-h1 {
-    font-size: 2.5rem;
-}
-
-h2 {
-    font-size: 2rem;
-}
-
-h3 {
-    font-size: 1.5rem;
-}
-
-p {
-    margin-bottom: 1rem;
-}
-
-a {
-    text-decoration: none;
-    color: var(--secondary-color);
-    transition: color 0.3s;
-}
-
-a:hover {
-    color: var(--primary-color);
-}
-
-/* Layout */
-.container {
-    width: 100%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 1rem;
-}
-
-/* Header */
-header {
-    background-color: var(--white);
-    box-shadow: var(--shadow);
-    position: sticky;
-    top: 0;
-    z-index: 1000;
-}
-
-.header-container {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 1rem 0;
-}
-
-.logo {
-    display: flex;
-    align-items: center;
-}
-
-.logo-icon {
-    width: 50px;
-    height: 50px;
-    background-color: var(--secondary-color);
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 1.2rem;
-}
-
-.logo-text {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--primary-color);
-    margin-left: 0.5rem;
-}
-
-/* Navigation */
-nav ul {
-    display: flex;
-    list-style: none;
-    align-items: center;
-}
-
-nav li {
-    position: relative;
-    margin-left: 1.5rem;
-}
-
-nav > ul > li > a {
-    font-weight: 600;
-    color: var(--text-color);
-    padding: 0.5rem 0;
-}
-
-nav a:hover {
-    color: var(--secondary-color);
-}
-
-/* Dropdown Menu */
-.dropdown-container {
-    position: relative;
-}
-
-.dropdown {
-    position: absolute;
-    top: 100%;
-    left: 0;
-    background-color: var(--white);
-    min-width: 220px;
-    box-shadow: var(--shadow);
-    border-radius: var(--border-radius);
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(10px);
-    transition: all 0.3s;
-    z-index: 100;
-}
-
-.dropdown li {
-    margin: 0;
-    width: 100%;
-}
-
-.dropdown a {
-    display: block;
-    padding: 0.8rem 1rem;
-    border-bottom: 1px solid #f0f0f0;
-    color: var(--text-color);
-    font-weight: normal;
-    font-size: 0.9rem;
-}
-
-.dropdown a:hover {
-    background-color: var(--light-bg);
-    color: var(--secondary-color);
-}
-
-.dropdown-container:hover .dropdown {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.cta-button {
-    background-color: var(--accent-color);
-    color: var(--text-color) !important;
-    padding: 0.5rem 1.5rem !important;
-    border-radius: 4px;
-    font-weight: 600;
-    transition: all 0.3s;
-}
-
-.cta-button:hover {
-    background-color: #ffb300 !important;
-    transform: translateY(-2px);
-}
-
-.mobile-menu-btn {
-    display: none;
-    background: none;
-    border: none;
-    font-size: 1.5rem;
-    cursor: pointer;
-    color: var(--primary-color);
-}
-
-/* Hero Section */
-.hero {
-    background: linear-gradient(rgba(46, 125, 50, 0.8), rgba(46, 125, 50, 0.8));
-    background-size: cover;
-    background-position: center;
-    color: var(--white);
-    padding: 5rem 0;
-    text-align: center;
-}
-
-.hero h1 {
-    color: var(--white);
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.hero p {
-    font-size: 1.2rem;
-    max-width: 700px;
-    margin: 0 auto 2rem;
-    color: rgba(255, 255, 255, 0.9);
-}
-
-.hero-buttons {
-    display: flex;
-    gap: 1rem;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-/* Buttons */
-.btn {
-    display: inline-block;
-    padding: 0.8rem 1.5rem;
-    border-radius: 4px;
-    font-weight: 600;
-    transition: all 0.3s;
-    border: none;
-    cursor: pointer;
-    text-align: center;
-}
-
-.btn-primary {
-    background-color: var(--accent-color);
-    color: var(--text-color);
-}
-
-.btn-primary:hover {
-    background-color: #ffb300;
-    transform: translateY(-2px);
-}
-
-.btn-secondary {
-    background-color: transparent;
-    color: var(--white);
-    border: 2px solid var(--white);
-}
-
-.btn-secondary:hover {
-    background-color: var(--white);
-    color: var(--primary-color);
-    transform: translateY(-2px);
-}
-
-.btn-block {
-    display: block;
-    width: 100%;
-}
-
-/* Sections */
-section {
-    padding: 4rem 0;
-}
-
-.section-light {
-    background-color: var(--light-bg);
-}
-
-.section-title {
-    text-align: center;
-    margin-bottom: 3rem;
-}
-
-.section-title:after {
-    content: '';
-    display: block;
-    width: 80px;
-    height: 3px;
-    background-color: var(--secondary-color);
-    margin: 0.5rem auto;
-}
-
-/* Services Grid */
-.services-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.service-card {
-    background-color: var(--white);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.service-card:hover {
-    transform: translateY(-5px);
-}
-
-.service-icon {
-    font-size: 3rem;
-    margin-bottom: 1rem;
-}
-
-.service-card h3 {
-    margin-bottom: 1rem;
-    color: var(--primary-color);
-}
-
-.service-link {
-    display: inline-block;
-    margin-top: 1rem;
-    font-weight: 600;
-    color: var(--secondary-color);
-}
-
-/* Products Grid */
-.products-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.product-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-    transition: transform 0.3s;
-}
-
-.product-card:hover {
-    transform: translateY(-5px);
-}
-
-.product-image {
-    height: 200px;
-    background-color: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.placeholder-image {
-    color: #666;
-    font-weight: 600;
-}
-
-.product-card h3 {
-    padding: 1rem 1rem 0.5rem;
-    margin-bottom: 0.5rem;
-}
-
-.product-card p {
-    padding: 0 1rem;
-    font-size: 0.9rem;
-    color: #666;
-}
-
-.product-features {
-    padding: 1rem;
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    font-size: 0.8rem;
-    color: #666;
-}
-
-/* Projects Grid */
-.projects-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
-.project-card {
-    background-color: var(--white);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    box-shadow: var(--shadow);
-}
-
-.project-image {
-    height: 200px;
-    background-color: #e0e0e0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.project-content {
-    padding: 1.5rem;
-}
-
-.project-content h3 {
-    margin-bottom: 0.5rem;
-}
-
-.project-details {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-    font-size: 0.9rem;
-}
-
-/* About Section */
-.about-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-    align-items: center;
-}
-
-.about-image {
-    border-radius: var(--border-radius);
-    overflow: hidden;
-}
-
-.about-placeholder {
-    height: 400px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background-color: #e0e0e0;
-}
-
-.achievements {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 1rem;
-    margin-top: 2rem;
-}
-
-.achievement {
-    text-align: center;
-    padding: 1rem;
-}
-
-.achievement h3 {
-    font-size: 2rem;
-    color: var(--secondary-color);
-    margin-bottom: 0.5rem;
-}
-
-.achievement p {
-    font-size: 0.9rem;
-    color: #666;
-    margin: 0;
-}
-
-/* Resources Grid */
-.resources-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 2rem;
-}
-
-.resource-card {
-    background-color: var(--white);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-    box-shadow: var(--shadow);
-    text-align: center;
-    transition: transform 0.3s;
-}
-
-.resource-card:hover {
-    transform: translateY(-5px);
-}
-
-.resource-icon {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-}
-
-.resource-card h3 {
-    margin-bottom: 1rem;
-}
-
-.resource-link {
-    display: inline-block;
-    margin-top: 1rem;
-    font-weight: 600;
-}
-
-/* Contact Section */
-.contact-container {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 3rem;
-}
-
-.contact-info h3 {
-    margin-bottom: 1rem;
-}
-
-.contact-details {
-    margin: 2rem 0;
-}
-
-.contact-item {
-    display: flex;
-    align-items: flex-start;
-    margin-bottom: 1.5rem;
-}
-
-.contact-icon {
-    margin-right: 1rem;
-    font-size: 1.2rem;
-}
-
-.service-areas {
-    margin-top: 2rem;
-    padding: 1.5rem;
-    background-color: var(--light-bg);
-    border-radius: var(--border-radius);
-}
-
-.contact-form {
-    background-color: var(--light-bg);
-    padding: 2rem;
-    border-radius: var(--border-radius);
-}
-
-.form-group {
-    margin-bottom: 1.5rem;
-}
-
-.form-group label {
-    display: block;
-    margin-bottom: 0.5rem;
-    font-weight: 600;
-}
-
-.form-control {
-    width: 100%;
-    padding: 0.8rem;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    font-family: inherit;
-    font-size: 1rem;
-}
-
-.form-control:focus {
-    outline: none;
-    border-color: var(--secondary-color);
-}
-
-/* Footer */
-footer {
-    background-color: var(--primary-color);
-    color: var(--white);
-    padding: 3rem 0 1rem;
-}
-
-.footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    margin-bottom: 2rem;
-}
-
-.footer-col h3 {
-    color: var(--white);
-    margin-bottom: 1.5rem;
-    font-size: 1.2rem;
-}
-
-.footer-col ul {
-    list-style: none;
-}
-
-.footer-col li {
-    margin-bottom: 0.8rem;
-}
-
-.footer-col a {
-    color: #e0e0e0;
-}
-
-.footer-col a:hover {
-    color: var(--accent-color);
-}
-
-.footer-logo {
-    display: flex;
-    align-items: center;
-    margin-bottom: 1rem;
-}
-
-.footer-logo .logo-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1rem;
-}
-
-.footer-logo .logo-text {
-    color: var(--white);
-    font-size: 1.2rem;
-}
-
-.social-links {
-    display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
-}
-
-.social-links a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background-color: rgba(255, 255, 255, 0.1);
-    border-radius: 50%;
-    transition: all 0.3s;
-    font-size: 1.2rem;
-}
-
-.social-links a:hover {
-    background-color: var(--accent-color);
-    color: var(--text-color);
-}
-
-.contact-info li {
-    display: flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.copyright {
-    text-align: center;
-    padding-top: 2rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.9rem;
-    color: #e0e0e0;
-}
-
-.copyright a {
-    color: #e0e0e0;
-}
-
-.copyright a:hover {
-    color: var(--accent-color);
-}
-
-/* Responsive Design */
-@media (max-width: 768px) {
-    h1 {
-        font-size: 2rem;
-    }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Solis Green India - Leading solar company in Kerala. Solar panel installation across Pathanamthitta, Kottayam, Alappuzha and South Kerala with government subsidy.">
+    <meta name="keywords" content="solar company kerala, solar panels thiruvalla, solar installation pathanamthitta, solar subsidy kerala">
+    <meta name="author" content="Solis Green India">
     
-    h2 {
-        font-size: 1.8rem;
-    }
+    <!-- Preload WebP hero images (4,5,6) -->
+    <link rel="preload" href="images/hero/hero-image-4.webp" as="image" type="image/webp">
+    <link rel="preload" href="images/hero/hero-image-5.webp" as="image" type="image/webp">
+    <link rel="preload" href="images/hero/hero-image-6.webp" as="image" type="image/webp">
     
-    .header-container {
-        flex-wrap: wrap;
-    }
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id=GTM-5C2D5BG9'+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-5C2D5BG9');</script>
+    <!-- End Google Tag Manager -->
     
-    .mobile-menu-btn {
-        display: block;
+    <!-- Local Business Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Solis Green India",
+      "description": "Leading solar energy company in Kerala providing solar panel installation with government subsidies",
+      "url": "https://solisgreenindia.in",
+      "telephone": [
+        "+91-8301849474",
+        "+91-9539316623",
+        "+91-8606849474"
+      ],
+      "email": "solisgreenindia@gmail.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Opposite St. George Orthodox Church, Muthoor",
+        "addressLocality": "Thiruvalla",
+        "addressRegion": "Kerala",
+        "postalCode": "689107",
+        "addressCountry": "India"
+      },
+      "areaServed": ["Pathanamthitta", "Kottayam", "Alappuzha", "Kollam", "Thiruvananthapuram"],
+      "openingHours": "Mo-Su 08:00-20:00",
+      "priceRange": "₹₹"
     }
+    </script>
     
-    nav {
-        width: 100%;
-        max-height: 0;
-        overflow: hidden;
-        transition: max-height 0.3s;
-    }
+    <title>Solis Green India - Solar Company Kerala | Govt Subsidy Solar Panels</title>
+    <link rel="stylesheet" href="style.css">
     
-    nav.active {
-        max-height: 500px;
-    }
+    <!-- ADDED: Christmas Campaign Styles -->
+    <link rel="stylesheet" href="assets/christmas-offer/christmas-styles.css">
     
-    nav ul {
-        flex-direction: column;
-        padding: 1rem 0;
-    }
-    
-    nav li {
-        margin: 0.5rem 0;
-        width: 100%;
-    }
-    
-    .dropdown {
-        position: static;
-        opacity: 1;
-        visibility: visible;
-        transform: none;
-        box-shadow: none;
-        background-color: transparent;
-        margin-left: 1rem;
-        display: none;
-    }
-    
-    .dropdown.active {
-        display: block;
-    }
-    
-    .dropdown a {
-        padding: 0.5rem 0;
-        border-bottom: none;
-    }
-    
-    .hero {
-        padding: 3rem 0;
-    }
-    
-    .about-content,
-    .contact-container {
-        grid-template-columns: 1fr;
-    }
-    
-    .hero-buttons {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .btn {
-        width: 100%;
-        max-width: 300px;
-    }
-    
-    section {
-        padding: 3rem 0;
-    }
-    
-    .achievements {
-        grid-template-columns: 1fr;
-    }
-}
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Google Tag Manager (noscript) -->
+    <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-5C2D5BG9"
+    height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+    <!-- End Google Tag Manager (noscript) -->
 
-/* Performance Optimizations */
-img {
-    max-width: 100%;
-    height: auto;
-}
+    <!-- Expandable Floating CTA -->
+    <div class="floating-cta">
+        <div class="cta-main-btn" id="ctaMainBtn">
+            <i class="fas fa-comments"></i>
+            <span class="pulse-dot"></span>
+        </div>
+        <div class="cta-options">
+            <a href="tel:8301849474" class="cta-option" data-tooltip="Primary Call">
+                <i class="fas fa-phone"></i>
+            </a>
+            <a href="tel:9539316623" class="cta-option" data-tooltip="Alternate Call">
+                <i class="fas fa-phone-alt"></i>
+            </a>
+            <a href="tel:8606849474" class="cta-option" data-tooltip="Support Call">
+                <i class="fas fa-headset"></i>
+            </a>
+            <a href="#" class="cta-option" data-tooltip="Quick Quote" id="quickFormBtn">
+                <i class="fas fa-file-alt"></i>
+            </a>
+            <a href="https://wa.me/918301849474" class="cta-option" data-tooltip="Primary WhatsApp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+            <a href="https://wa.me/919539316623" class="cta-option" data-tooltip="Alternate WhatsApp" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+    </div>
+
+    <!-- Quick Quote Modal -->
+    <div class="modal" id="quickQuoteModal">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h3>Get Quick Solar Quote</h3>
+            <form class="quick-quote-form" id="modalQuoteForm">
+                <input type="hidden" name="_subject" value="🔆 Quick Solar Quote - Solis Green India">
+                <input type="hidden" name="_template" value="table">
+                <input type="hidden" name="_captcha" value="false">
+                
+                <div class="form-group">
+                    <input type="text" name="name" placeholder="Your Name" required>
+                </div>
+                <div class="form-group">
+                    <input type="tel" name="phone" placeholder="Phone Number" required>
+                </div>
+                <div class="form-group">
+                    <select name="service" required>
+                        <option value="">Select Service</option>
+                        <option value="residential">Residential Solar</option>
+                        <option value="commercial">Commercial Solar</option>
+                        <option value="industrial">Industrial Solar</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="text" name="location" placeholder="Your Location/City">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block">
+                    <i class="fas fa-bolt"></i> Get Instant Quote
+                </button>
+            </form>
+            <div class="emergency-contact-modal">
+                <h4>Need Immediate Help?</h4>
+                <div class="emergency-numbers">
+                    <a href="tel:8301849474" class="emergency-number">
+                        <i class="fas fa-phone"></i> Primary: 8301849474
+                    </a>
+                    <a href="tel:9539316623" class="emergency-number">
+                        <i class="fas fa-phone-alt"></i> Alternate: 9539316623
+                    </a>
+                    <a href="tel:8606849474" class="emergency-number">
+                        <i class="fas fa-headset"></i> Support: 8606849474
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <div class="logo">
+                <a href="/">
+                    <img src="images/logo/logo.png" alt="Solis Green India - Solar Energy Solutions" class="logo-img">
+                </a>
+            </div>
+            
+            <div class="header-contact">
+                <a href="tel:8301849474" class="contact-link">
+                    <i class="fas fa-phone"></i>
+                    <span>Primary: 8301849474</span>
+                </a>
+                <a href="tel:9539316623" class="contact-link">
+                    <i class="fas fa-phone-alt"></i>
+                    <span>Alternate: 9539316623</span>
+                </a>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle menu">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav id="mainNav">
+                <ul>
+                    <li><a href="/" class="active">Home</a></li>
+                    <li><a href="services/">Services</a></li>
+                    <li><a href="cities/">Service Areas</a></li>
+                    <li><a href="about/">About Us</a></li>
+                    <li><a href="projects/">Projects</a></li>
+                    <li><a href="contact/" class="cta-button">Contact</a></li>         
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Slider (Style A, 3 slides, using hero-image-4/5/6) -->
+    <section class="hero-slider" id="home">
+        <div class="particles-container">
+            <div class="particles"></div>
+            <div class="solar-flare"></div>
+        </div>
+        
+        <div class="hero-slides">
+            <!-- Slide 1 -->
+            <div class="hero-slide active">
+                <img src="images/hero/hero-image-4.webp" 
+                     alt="Solar panels powering homes in Kerala" 
+                     class="hero-bg-image" 
+                     loading="eager" 
+                     fetchpriority="high"
+                     width="2000" 
+                     height="1333">
+                <div class="gradient-overlay gradient-blue"></div>
+                <div class="floating-elements">
+                    <div class="floating-element element-1">☀️</div>
+                    <div class="floating-element element-2">⚡</div>
+                    <div class="floating-element element-3">🌱</div>
+                </div>
+                <div class="hero-content container">
+                    <h1>Powering Kerala's Future with Sustainable Energy</h1>
+                    <p>Leading solar energy solutions provider serving Pathanamthitta, Kottayam, Alappuzha and across South Kerala.</p>
+                    <div class="hero-buttons">
+                        <div class="contact-options">
+                            <a href="tel:8301849474" class="btn btn-primary pulse-animation">
+                                <i class="fas fa-phone"></i> Primary: 8301849474
+                            </a>
+                            <a href="tel:9539316623" class="btn btn-secondary">
+                                <i class="fas fa-phone-alt"></i> Alternate: 9539316623
+                            </a>
+                            <a href="tel:8606849474" class="btn btn-support">
+                                <i class="fas fa-headset"></i> Support: 8606849474
+                            </a>
+                        </div>
+                        <div class="whatsapp-options">
+                            <a href="https://wa.me/918301849474" class="btn btn-whatsapp">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Primary
+                            </a>
+                            <a href="https://wa.me/919539316623" class="btn btn-whatsapp-alt">
+                                <i class="fab fa-whatsapp"></i> WhatsApp Alternate
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 2 -->
+            <div class="hero-slide">
+                <img src="images/hero/hero-image-5.webp" 
+                     alt="Commercial solar rooftop installation in Kerala" 
+                     class="hero-bg-image" 
+                     loading="lazy"
+                     width="2000" 
+                     height="1333">
+                <div class="gradient-overlay gradient-green"></div>
+                <div class="floating-elements">
+                    <div class="floating-element element-1">💰</div>
+                    <div class="floating-element element-2">🏠</div>
+                    <div class="floating-element element-3">⚡</div>
+                </div>
+                <div class="hero-content container">
+                    <h1>Complete Solar Energy Solutions</h1>
+                    <p>Expert solar services from consultation to installation and maintenance across Kerala.</p>
+                    <div class="hero-buttons">
+                        <div class="contact-options">
+                            <a href="tel:8301849474" class="btn btn-primary">
+                                <i class="fas fa-phone"></i> Call for Consultation
+                            </a>
+                            <a href="tel:9539316623" class="btn btn-secondary">
+                                <i class="fas fa-phone-alt"></i> Alternate Line
+                            </a>
+                        </div>
+                        <div class="whatsapp-options">
+                            <a href="services/" class="btn btn-whatsapp">
+                                <i class="fas fa-bolt"></i> Explore Services
+                            </a>
+                            <a href="https://wa.me/918301849474" class="btn btn-whatsapp-alt">
+                                <i class="fab fa-whatsapp"></i> Quick Quote
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Slide 3 -->
+            <div class="hero-slide">
+                <img src="images/hero/hero-image-6.webp" 
+                     alt="Experienced solar installation team in Kerala" 
+                     class="hero-bg-image" 
+                     loading="lazy"
+                     width="2000" 
+                     height="1333">
+                <div class="gradient-overlay gradient-purple"></div>
+                <div class="floating-elements">
+                    <div class="floating-element element-1">🔧</div>
+                    <div class="floating-element element-2">⭐</div>
+                    <div class="floating-element element-3">🏆</div>
+                </div>
+                <div class="hero-content container">
+                    <h1>Expert Solar Installation Since 2019</h1>
+                    <p>Trusted by 500+ homes across South Kerala. Quality products with 25-year performance warranty.</p>
+                    <div class="hero-buttons">
+                        <div class="contact-options">
+                            <a href="tel:8606849474" class="btn btn-support pulse-animation">
+                                <i class="fas fa-headset"></i> Support: 8606849474
+                            </a>
+                            <a href="tel:8301849474" class="btn btn-primary">
+                                <i class="fas fa-phone"></i> Call Experts
+                            </a>
+                        </div>
+                        <div class="whatsapp-options">
+                            <a href="projects/" class="btn btn-whatsapp">
+                                <i class="fas fa-images"></i> View Our Projects
+                            </a>
+                            <a href="https://wa.me/918301849474" class="btn btn-whatsapp-alt">
+                                <i class="fab fa-whatsapp"></i> Chat Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slider Controls -->
+        <button class="slider-prev" aria-label="Previous slide">
+            <i class="fas fa-chevron-left"></i>
+        </button>
+        <button class="slider-next" aria-label="Next slide">
+            <i class="fas fa-chevron-right"></i>
+        </button>
+        
+        <!-- Slider Dots -->
+        <div class="slider-dots">
+            <button class="dot active" data-slide="0" aria-label="Go to slide 1"></button>
+            <button class="dot" data-slide="1" aria-label="Go to slide 2"></button>
+            <button class="dot" data-slide="2" aria-label="Go to slide 3"></button>
+        </div>
+    </section>
+
+    <!-- Urgency Banner -->
+    <div class="urgency-banner">
+        <div class="container">
+            <i class="fas fa-bolt"></i>
+            <span><strong>Limited Time Offer:</strong> Get Extra ₹5,000 Discount + Government Subsidy - Book Free Site Survey Today!</span>
+            <div class="urgency-contacts">
+                <a href="tel:8301849474" class="btn-urgency">Call Primary</a>
+                <a href="tel:9539316623" class="btn-urgency-alt">Call Alternate</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Quick Quote Section -->
+    <section class="quick-quote-section" id="quick-quote">
+        <div class="container">
+            <h2 class="section-title">Get Your Free Solar Quote in 30 Seconds</h2>
+            <div class="quote-form-container">
+                <form class="quick-quote-form" id="mainQuoteForm">
+                    <input type="hidden" name="_subject" value="🔆 Solar Quote Request - Solis Green India">
+                    <input type="hidden" name="_template" value="table">
+                    <input type="hidden" name="_captcha" value="false">
+                    
+                    <div class="form-row">
+                        <div class="form-group">
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" name="phone" placeholder="Phone Number" required>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <select name="service" required>
+                                <option value="">Select Service</option>
+                                <option value="residential">Home Solar</option>
+                                <option value="commercial">Business Solar</option>
+                                <option value="industrial">Industrial Solar</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <input type="text" name="location" placeholder="Your Location" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-primary btn-block">
+                        <i class="fas fa-bolt"></i> Get Free Quote & Site Survey
+                    </button>
+                </form>
+                <div class="quote-benefits">
+                    <h4>Why Get Our Quote?</h4>
+                    <ul>
+                        <li><i class="fas fa-check"></i> Free Site Survey</li>
+                        <li><i class="fas fa-check"></i> Government Subsidy Assistance</li>
+                        <li><i class="fas fa-check"></i> Best Price Guarantee</li>
+                        <li><i class="fas fa-check"></i> No Obligation</li>
+                    </ul>
+                    
+                    <div class="emergency-contact">
+                        <h4>Need Immediate Assistance?</h4>
+                        <div class="emergency-numbers">
+                            <a href="tel:8301849474" class="emergency-number">
+                                <i class="fas fa-phone"></i> Primary: 8301849474
+                            </a>
+                            <a href="tel:9539316623" class="emergency-number">
+                                <i class="fas fa-phone"></i> Alternate: 9539316623
+                            </a>
+                            <a href="tel:8606849474" class="emergency-number">
+                                <i class="fas fa-headset"></i> Support: 8606849474
+                            </a>
+                        </div>
+                        <p class="emergency-note">Available 24/7 for emergency solar services</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Coverage Section -->
+    <section class="local-coverage section-light">
+        <div class="container">
+            <h2 class="section-title">Serving Across Kerala</h2>
+            <p class="text-center">Professional solar solutions available in these districts with local expertise</p>
+            <div class="districts-grid">
+                <div class="district-card">
+                    <div class="district-icon">
+                        <i class="fas fa-map-marker-alt"></i>
+                    </div>
+                    <h3>Pathanamthitta</h3>
+                    <p>Thiruvalla, Kozhencherry, Ranni, Adoor, Konni, Pandalam</p>
+                    <a href="solar-company-in-pathanamthitta/" class="btn btn-outline">View Areas</a>
+                </div>
+                <div class="district-card">
+                    <div class="district-icon">
+                        <i class="fas fa-industry"></i>
+                    </div>
+                    <h3>Kottayam</h3>
+                    <p>Changanacherry, Pala, Kanjirapally, Vaikom, Ettumanoor</p>
+                    <a href="solar-company-in-kottayam/" class="btn btn-outline">View Areas</a>
+                </div>
+                <div class="district-card">
+                    <div class="district-icon">
+                        <i class="fas fa-water"></i>
+                    </div>
+                    <h3>Alappuzha</h3>
+                    <p>Cherthala, Haripad, Kayamkulam, Mavelikkara, Chengannur</p>
+                    <a href="solar-company-in-alappuzha/" class="btn btn-outline">View Areas</a>
+                </div>
+                <div class="district-card">
+                    <div class="district-icon">
+                        <i class="fas fa-anchor"></i>
+                    </div>
+                    <h3>Kollam</h3>
+                    <p>Karunagapally, Punalur, Kottarakara, Paravur, Sasthamkotta</p>
+                    <a href="solar-company-in-kollam/" class="btn btn-outline">View Areas</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quick Services -->
+    <section class="quick-services">
+        <div class="container">
+            <h2 class="section-title">Our Solar Solutions</h2>
+            <div class="services-grid">
+                <div class="service-card">
+                    <i class="fas fa-home"></i>
+                    <h3>Residential Solar</h3>
+                    <p>Home solar systems with 40% government subsidy. Save 80% on electricity bills.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> 1-10kW Systems</span>
+                        <span><i class="fas fa-check"></i> Govt Subsidy</span>
+                        <span><i class="fas fa-check"></i> 25-Year Warranty</span>
+                    </div>
+                    <a href="services/residential-solar.html" class="btn btn-outline">
+                        <i class="fas fa-arrow-right"></i> Learn More
+                    </a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-building"></i>
+                    <h3>Commercial Solar</h3>
+                    <p>Business solar solutions with tax benefits. Reduce operational costs by 60%.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> 10-100kW Systems</span>
+                        <span><i class="fas fa-check"></i> Tax Benefits</span>
+                        <span><i class="fas fa-check"></i> Quick ROI</span>
+                    </div>
+                    <a href="services/commercial-solar.html" class="btn btn-outline">
+                        <i class="fas fa-arrow-right"></i> Learn More
+                    </a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-industry"></i>
+                    <h3>Industrial Solar</h3>
+                    <p>Large-scale solar plants for factories. 50% cost reduction with captive power.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> 100kW-1MW+</span>
+                        <span><i class="fas fa-check"></i> Carbon Credits</span>
+                        <span><i class="fas fa-check"></i> Energy Independence</span>
+                    </div>
+                    <a href="services/industrial-solar.html" class="btn btn-outline">
+                        <i class="fas fa-arrow-right"></i> Learn More
+                    </a>
+                </div>
+                <div class="service-card">
+                    <i class="fas fa-tools"></i>
+                    <h3>Solar Maintenance</h3>
+                    <p>Professional cleaning, repair & AMC services. Keep your system at peak performance.</p>
+                    <div class="service-features">
+                        <span><i class="fas fa-check"></i> Panel Cleaning</span>
+                        <span><i class="fas fa-check"></i> System Repair</span>
+                        <span><i class="fas fa-check"></i> 24/7 Support</span>
+                    </div>
+                    <a href="services/solar-maintenance.html" class="btn btn-outline">
+                        <i class="fas fa-arrow-right"></i> Learn More
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Additional CTA -->
+            <div class="services-cta">
+                <div class="cta-content">
+                    <h3>Not Sure Which Service You Need?</h3>
+                    <p>Call our solar experts for free consultation</p>
+                    <div class="cta-buttons">
+                        <a href="tel:8301849474" class="btn btn-primary">
+                            <i class="fas fa-phone"></i> Call Expert: 8301849474
+                        </a>
+                        <a href="services/" class="btn btn-secondary">
+                            <i class="fas fa-bolt"></i> View All Services
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Local Testimonials -->
+    <section class="local-testimonials section-light">
+        <div class="container">
+            <h2 class="section-title">What Our Customers Say</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Excellent solar installation in Thiruvalla. Saved 80% on electricity bills with professional service from Solis Green India!"</p>
+                        <div class="testimonial-author">
+                            <strong>Rajesh Kumar</strong>
+                            <span>Thiruvalla</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star-half-alt"></i>
+                        </div>
+                        <p>"Professional solar service in Kottayam area. Complete installation in 3 days with subsidy assistance. Highly recommended!"</p>
+                        <div class="testimonial-author">
+                            <strong>Priya Menon</strong>
+                            <span>Kottayam</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        <div class="rating-stars">
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <p>"Best solar company in Alappuzha district. Great after-sales support and maintenance services. 5-star experience!"</p>
+                        <div class="testimonial-author">
+                            <strong>Suresh Pillai</strong>
+                            <span>Cherthala</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Google Maps Section -->
+    <section class="google-maps-section">
+        <div class="container">
+            <h2 class="section-title">Visit Our Office</h2>
+            <p class="text-center">Conveniently located in Thiruvalla - Serving All South Kerala</p>
+            
+            <div class="map-container">
+                <div class="map-embed">
+                    <iframe 
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3931.112123456789!2d76.5635123!3d9.3951232!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zOcKwMjMnNDIuNCJOIDc2wrAzMyc1OC4wIkU!5e0!3m2!1sen!2sin!4v1700000000000!5m2!1sen!2sin" 
+                        width="100%" 
+                        height="450" 
+                        style="border:0; border-radius: var(--border-radius);" 
+                        allowfullscreen="" 
+                        loading="lazy" 
+                        referrerpolicy="no-referrer-when-downgrade"
+                        title="Solis Green India Location">
+                    </iframe>
+                </div>
+                
+                <div class="map-sidebar">
+                    <div class="location-card">
+                        <div class="location-header">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <h3>Solis Green India</h3>
+                        </div>
+                        <div class="location-details">
+                            <p class="address">
+                                <i class="fas fa-location-dot"></i>
+                                <span>Opposite St. George Orthodox Church, Muthoor, Thiruvalla, Kerala 689107</span>
+                            </p>
+                            <p class="phone">
+                                <i class="fas fa-phone"></i>
+                                <a href="tel:8301849474">Primary: 8301849474</a>
+                            </p>
+                            <p class="phone">
+                                <i class="fas fa-phone-alt"></i>
+                                <a href="tel:9539316623">Alternate: 9539316623</a>
+                            </p>
+                            <p class="phone">
+                                <i class="fas fa-headset"></i>
+                                <a href="tel:8606849474">Support: 8606849474</a>
+                            </p>
+                            <p class="hours">
+                                <i class="fas fa-clock"></i>
+                                <span>Mon-Sun: 8:00 AM - 8:00 PM</span>
+                            </p>
+                            <p class="parking">
+                                <i class="fas fa-car"></i>
+                                <span>Ample Parking Available</span>
+                            </p>
+                        </div>
+                        <div class="location-actions">
+                            <a href="https://www.google.com/maps/dir/?api=1&destination=9.39512320,76.56610090" 
+                               class="btn btn-primary btn-block" target="_blank">
+                                <i class="fas fa-directions"></i> Get Directions
+                            </a>
+                            <a href="tel:8301849474" class="btn btn-outline btn-block">
+                                <i class="fas fa-phone"></i> Call Now
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="landmarks-info">
+                <h4>Easy to Find Location:</h4>
+                <div class="landmarks-list">
+                    <div class="landmark-item">
+                        <i class="fas fa-church"></i>
+                        <span>Opposite St. George Orthodox Church</span>
+                    </div>
+                    <div class="landmark-item">
+                        <i class="fas fa-utensils"></i>
+                        <span>Near Al Razi Restaurant</span>
+                    </div>
+                    <div class="landmark-item">
+                        <i class="fas fa-cut"></i>
+                        <span>Close to Tom&Guy Hairdressing</span>
+                    </div>
+                    <div class="landmark-item">
+                        <i class="fas fa-crossroads"></i>
+                        <span>Muthoor Junction Area</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Why Choose Us Section -->
+    <section class="why-choose-us section-light">
+        <div class="container">
+            <h2 class="section-title">Why Choose Solis Green India?</h2>
+            <div class="features-grid">
+                <div class="feature-item">
+                    <i class="fas fa-award"></i>
+                    <h3>Expert Team</h3>
+                    <p>Certified solar professionals with years of experience across Kerala</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-cogs"></i>
+                    <h3>Quality Products</h3>
+                    <p>Premium solar panels and components from trusted brands</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-headset"></i>
+                    <h3>Complete Support</h3>
+                    <p>End-to-end service from consultation to maintenance</p>
+                </div>
+                <div class="feature-item">
+                    <i class="fas fa-rupee-sign"></i>
+                    <h3>Best Value</h3>
+                    <p>Competitive pricing with maximum ROI and subsidy assistance</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-col">
+                    <div class="footer-logo">
+                        <img src="images/logo/logo-white.png" alt="Solis Green India" class="footer-logo-img">
+                    </div>
+                    <p>Leading provider of sustainable energy solutions in Kerala, committed to a greener future with local expertise across multiple districts.</p>
+                    <div class="social-links">
+                        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                        <a href="https://wa.me/918301849474" aria-label="WhatsApp" target="_blank"><i class="fab fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="services/">Services</a></li>
+                        <li><a href="cities/">Service Areas</a></li>
+                        <li><a href="about/">About Us</a></li>
+                        <li><a href="projects/">Projects</a></li>
+                        <li><a href="contact/">Contact</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Service Areas</h3>
+                    <ul>
+                        <li><a href="solar-company-in-pathanamthitta/">Pathanamthitta District</a></li>
+                        <li><a href="solar-company-in-kottayam/">Kottayam District</a></li>
+                        <li><a href="solar-company-in-alappuzha/">Alappuzha District</a></li>
+                        <li><a href="solar-company-in-kollam/">Kollam District</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact Solis Green India</h3>
+                    <ul class="contact-info">
+                        <li class="contact-primary">
+                            <i class="fas fa-phone"></i> 
+                            <div>
+                                <a href="tel:8301849474">Primary: 8301849474</a>
+                                <span class="contact-label">Main Line</span>
+                            </div>
+                        </li>
+                        <li class="contact-alternate">
+                            <i class="fas fa-phone-alt"></i> 
+                            <div>
+                                <a href="tel:9539316623">Alternate: 9539316623</a>
+                                <span class="contact-label">Emergency/Backup</span>
+                            </div>
+                        </li>
+                        <li class="contact-support">
+                            <i class="fas fa-headset"></i> 
+                            <div>
+                                <a href="tel:8606849474">Support: 8606849474</a>
+                                <span class="contact-label">Customer Support</span>
+                            </div>
+                        </li>
+                        <li class="whatsapp-primary">
+                            <i class="fab fa-whatsapp"></i> 
+                            <div>
+                                <a href="https://wa.me/918301849474">WhatsApp: 8301849474</a>
+                                <span class="contact-label">Primary Chat</span>
+                            </div>
+                        </li>
+                        <li class="whatsapp-alternate">
+                            <i class="fab fa-whatsapp"></i> 
+                            <div>
+                                <a href="https://wa.me/919539316623">WhatsApp: 9539316623</a>
+                                <span class="contact-label">Alternate Chat</span>
+                            </div>
+                        </li>
+                        <li><i class="fas fa-envelope"></i> <a href="mailto:solisgreenindia@gmail.com">solisgreenindia@gmail.com</a></li>
+                        <li><i class="fas fa-map-marker-alt"></i> Opposite St. George Orthodox Church, Thiruvalla - 689107</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2024 Solis Green India. All Rights Reserved. | Professional Solar Solutions Across Kerala</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <button id="backToTop" class="back-to-top" aria-label="Back to top">
+        <i class="fas fa-chevron-up"></i>
+    </button>
+
+    <script src="script.js"></script>
+    
+    <!-- ADDED: Christmas Campaign Scripts -->
+    <script src="assets/christmas-offer/christmas-config.js"></script>
+    <script src="assets/christmas-offer/christmas-popup.js"></script>
+    
+    <!-- Mobile Menu Fix (optional helper, same style as other pages) -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+            const mainNav = document.getElementById('mainNav');
+            
+            if (mobileMenuBtn && mainNav) {
+                mobileMenuBtn.addEventListener('click', function() {
+                    mainNav.classList.toggle('active');
+                    this.setAttribute('aria-expanded', mainNav.classList.contains('active'));
+                });
+                
+                const navLinks = mainNav.querySelectorAll('a');
+                navLinks.forEach(link => {
+                    link.addEventListener('click', () => {
+                        mainNav.classList.remove('active');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    });
+                });
+                
+                document.addEventListener('click', function(event) {
+                    if (!mainNav.contains(event.target) && !mobileMenuBtn.contains(event.target)) {
+                        mainNav.classList.remove('active');
+                        mobileMenuBtn.setAttribute('aria-expanded', 'false');
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html>
