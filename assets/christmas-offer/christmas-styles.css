@@ -1,0 +1,533 @@
+/****************************************************
+ * SOLIS GREEN INDIA – CHRISTMAS / FESTIVE STYLES
+ * File: assets/christmas-offer/christmas-styles.css
+ ****************************************************/
+
+/* ---------- 1. HEADER OFFER BUTTON ---------- */
+
+/* Wrapper that will sit inside .header-container */
+.solis-offer-container {
+    margin-left: 16px;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Main button (icon + text) */
+.solis-offer-btn {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 8px 16px 8px 12px;
+    border-radius: 999px;
+    border: none;
+    cursor: pointer;
+    font-family: inherit;
+    font-size: 0.95rem;
+    font-weight: 600;
+    letter-spacing: 0.01em;
+    background: linear-gradient(135deg, #ff4b5c, #ffb320);
+    color: #fff;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.25);
+    transform-origin: center;
+    transition:
+        transform 0.25s ease,
+        box-shadow 0.25s ease,
+        filter 0.25s ease,
+        background 0.25s ease;
+}
+
+/* subtle “breathe” + glow animation always on */
+.solis-offer-btn.solis-offer--festive {
+    animation:
+        solis-offer-bounce 2.4s ease-in-out infinite,
+        solis-offer-glow 1.8s ease-in-out infinite;
+}
+
+/* hover / focus state */
+.solis-offer-btn:hover,
+.solis-offer-btn:focus-visible {
+    outline: none;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 10px 24px rgba(0, 0, 0, 0.35);
+    filter: brightness(1.05);
+}
+
+/* small white focus ring for accessibility when using keyboard */
+.solis-offer-btn:focus-visible::after {
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    border: 2px solid rgba(255, 255, 255, 0.85);
+    pointer-events: none;
+}
+
+/* Gift icon “bubble” */
+.solis-offer-icon {
+    position: relative;
+    width: 28px;
+    height: 28px;
+    border-radius: 50%;
+    background: radial-gradient(circle at 30% 20%, #ffe6ec, #e0244f);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 0 0 2px rgba(255, 255, 255, 0.5);
+    overflow: visible;
+}
+
+/* Simple gift box using pseudo-elements so we don't depend on an image */
+.solis-offer-icon::before,
+.solis-offer-icon::after {
+    content: "";
+    position: absolute;
+    border-radius: 3px;
+}
+
+/* Gift base */
+.solis-offer-icon::before {
+    width: 18px;
+    height: 12px;
+    bottom: 5px;
+    background: linear-gradient(135deg, #ffcc33, #ff8a00);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.25);
+}
+
+/* Gift lid + ribbon */
+.solis-offer-icon::after {
+    width: 18px;
+    height: 7px;
+    bottom: 13px;
+    background:
+        linear-gradient(90deg, transparent 7px, #d31638 7px, #d31638 11px, transparent 11px),
+        linear-gradient(135deg, #ffe6ec, #ff4b5c);
+    border-radius: 4px 4px 2px 2px;
+}
+
+/* Little bow shape above the lid */
+.solis-offer-icon-bow {
+    position: absolute;
+    top: 2px;
+    left: 50%;
+    width: 14px;
+    height: 8px;
+    transform: translateX(-50%);
+    pointer-events: none;
+}
+
+.solis-offer-icon-bow::before,
+.solis-offer-icon-bow::after {
+    content: "";
+    position: absolute;
+    width: 8px;
+    height: 8px;
+    border-radius: 50% 50% 50% 0;
+    background: #ffe6ec;
+    box-shadow: inset 0 0 0 1px rgba(211, 22, 56, 0.2);
+}
+
+.solis-offer-icon-bow::before {
+    transform: rotate(-35deg);
+    left: -2px;
+}
+
+.solis-offer-icon-bow::after {
+    transform: rotate(215deg);
+    right: -2px;
+}
+
+/* “Offers” label text */
+.solis-offer-label {
+    line-height: 1;
+}
+
+/* Small shimmering badge (e.g. “New”, “Xmas”) – optional */
+.solis-offer-pill {
+    margin-left: 4px;
+    padding: 2px 6px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.18);
+    font-size: 0.7rem;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+}
+
+/* Extra sparkle dots around icon (purely decorative) */
+.solis-offer-btn::before,
+.solis-offer-btn::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.9;
+    pointer-events: none;
+}
+
+.solis-offer-btn::before {
+    width: 6px;
+    height: 6px;
+    background: #fff4c1;
+    top: -3px;
+    left: 8px;
+    box-shadow:
+        0 0 0 4px rgba(255, 244, 193, 0.4),
+        14px 5px 0 0 rgba(255, 244, 193, 0.9);
+}
+
+.solis-offer-btn::after {
+    width: 4px;
+    height: 4px;
+    background: #ffffff;
+    bottom: 1px;
+    right: 10px;
+    box-shadow:
+        -8px -4px 0 0 rgba(255, 255, 255, 0.9),
+        4px -8px 0 0 rgba(255, 244, 193, 0.8);
+}
+
+/* When JS wants to shake it (e.g. first view / on attention grab) */
+.solis-offer-btn.solis-offer--shake {
+    animation: solis-offer-shake 0.7s ease-in-out 0s 1;
+}
+
+/* ---------- 2. POPUP OVERLAY (FIRST CLICK) ---------- */
+
+#solis-gift-popup {
+    display: none; /* shown via JS */
+    position: fixed;
+    inset: 0;
+    background: radial-gradient(circle at top, rgba(255, 255, 255, 0.08), rgba(0, 0, 0, 0.85));
+    z-index: 10001;
+    align-items: center;
+    justify-content: center;
+    backdrop-filter: blur(3px);
+}
+
+/* visible state toggled from JS */
+#solis-gift-popup.solis-popup--visible {
+    display: flex;
+    animation: solis-popup-fade-in 0.35s ease-out;
+}
+
+/* Main popup card */
+#solis-popup-content {
+    position: relative;
+    width: min(460px, 92vw);
+    padding: 26px 24px 24px;
+    border-radius: 20px;
+    background:
+        linear-gradient(135deg, rgba(255, 255, 255, 0.9), rgba(248, 249, 250, 0.98));
+    border: 3px solid #e0244f;
+    box-shadow: 0 22px 50px rgba(0, 0, 0, 0.45);
+    text-align: center;
+    overflow: hidden;
+}
+
+/* Decorative top ribbon */
+#solis-popup-content::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+        linear-gradient(
+            135deg,
+            rgba(224, 36, 79, 0.18),
+            transparent 35%,
+            transparent 65%,
+            rgba(255, 194, 12, 0.25)
+        );
+    pointer-events: none;
+}
+
+/* Tiny snowflakes floating inside the popup */
+#solis-popup-content .solis-popup-snow {
+    position: absolute;
+    inset: 0;
+    pointer-events: none;
+    opacity: 0.6;
+}
+
+#solis-popup-content .solis-popup-snow span {
+    position: absolute;
+    color: #ffffff;
+    font-size: 10px;
+    animation: solis-snow-fall 12s linear infinite;
+}
+
+/* close “X” */
+.solis-btn-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: none;
+    background: #e0244f;
+    color: #fff;
+    font-size: 18px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    box-shadow: 0 4px 10px rgba(224, 36, 79, 0.45);
+    z-index: 2;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+}
+
+.solis-btn-close:hover {
+    transform: translateY(-1px) scale(1.05);
+    background: #b8173a;
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.35);
+}
+
+/* Headings */
+#solis-popup-content h2 {
+    color: #e0244f;
+    margin-bottom: 8px;
+    font-size: 1.5rem;
+}
+
+#solis-popup-content h3 {
+    color: #1e7e34;
+    margin: 4px 0 10px;
+    font-size: 1.1rem;
+}
+
+.solis-popup-subtitle {
+    color: #555;
+    font-size: 0.9rem;
+    margin-bottom: 12px;
+}
+
+/* Discount badge */
+.solis-discount-badge {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+    margin: 8px 0 14px;
+    padding: 10px 18px;
+    border-radius: 999px;
+    background: linear-gradient(135deg, #e0244f, #b8173a);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.95rem;
+    box-shadow: 0 4px 16px rgba(224, 36, 79, 0.6);
+}
+
+/* Small “spark” on the badge */
+.solis-discount-badge::after {
+    content: "✨";
+    font-size: 0.95rem;
+}
+
+/* Form fields in popup */
+.solis-form-group {
+    margin: 10px 0;
+    text-align: left;
+}
+
+.solis-form-group label {
+    display: block;
+    margin-bottom: 4px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    color: #2c3e50;
+}
+
+.solis-form-group input,
+.solis-form-group textarea {
+    width: 100%;
+    padding: 10px 11px;
+    border-radius: 8px;
+    border: 2px solid #f1b0b7;
+    font-size: 0.9rem;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease, background 0.2s ease;
+    background: #ffffff;
+}
+
+.solis-form-group input:focus,
+.solis-form-group textarea:focus {
+    outline: none;
+    border-color: #1e7e34;
+    box-shadow: 0 0 0 3px rgba(30, 126, 52, 0.25);
+}
+
+/* Buttons inside popup */
+.solis-submit-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 16px;
+}
+
+.solis-btn {
+    flex: 1;
+    min-width: 130px;
+    padding: 11px 12px;
+    border-radius: 10px;
+    border: none;
+    font-size: 0.9rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease, filter 0.2s ease;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+
+.solis-btn-email {
+    background: linear-gradient(135deg, #3498db, #1d6fa5);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(52, 152, 219, 0.5);
+}
+
+.solis-btn-whatsapp {
+    background: linear-gradient(135deg, #25d366, #128c7e);
+    color: #fff;
+    box-shadow: 0 4px 12px rgba(37, 211, 102, 0.5);
+}
+
+.solis-btn:hover {
+    transform: translateY(-1px);
+    filter: brightness(1.05);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35);
+}
+
+/* ---------- 3. FLOATING SNOW (OPTIONAL) ---------- */
+
+.solis-snowflake {
+    position: fixed;
+    top: -20px;
+    color: #ffffff;
+    font-size: 10px;
+    pointer-events: none;
+    z-index: 9999;
+    animation-name: solis-snow-fall;
+    animation-timing-function: linear;
+    animation-iteration-count: infinite;
+}
+
+/* JS can vary duration & delay via inline style */
+
+/* ---------- 4. ANIMATIONS ---------- */
+
+@keyframes solis-offer-bounce {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    25% {
+        transform: translateY(-3px);
+    }
+    50% {
+        transform: translateY(0);
+    }
+    75% {
+        transform: translateY(-2px);
+    }
+}
+
+@keyframes solis-offer-glow {
+    0%, 100% {
+        box-shadow:
+            0 6px 16px rgba(0, 0, 0, 0.25),
+            0 0 0 0 rgba(255, 255, 255, 0.0);
+    }
+    50% {
+        box-shadow:
+            0 10px 26px rgba(0, 0, 0, 0.35),
+            0 0 16px 2px rgba(255, 255, 255, 0.5);
+    }
+}
+
+@keyframes solis-offer-shake {
+    0%, 100% {
+        transform: translateY(0) rotate(0);
+    }
+    20% {
+        transform: translateY(-2px) rotate(-4deg);
+    }
+    40% {
+        transform: translateY(-1px) rotate(4deg);
+    }
+    60% {
+        transform: translateY(-2px) rotate(-3deg);
+    }
+    80% {
+        transform: translateY(0) rotate(2deg);
+    }
+}
+
+@keyframes solis-popup-fade-in {
+    from {
+        opacity: 0;
+        transform: translateY(10px) scale(0.96);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+@keyframes solis-snow-fall {
+    0% {
+        transform: translate3d(0, -10px, 0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.9;
+    }
+    50% {
+        transform: translate3d(-10px, 50vh, 0);
+    }
+    100% {
+        transform: translate3d(10px, 100vh, 0);
+        opacity: 0;
+    }
+}
+
+/* ---------- 5. RESPONSIVE TWEAKS ---------- */
+
+@media (max-width: 768px) {
+    /* Keep icon strong on mobile, shrink label */
+    .solis-offer-btn {
+        padding: 6px 10px 6px 8px;
+        font-size: 0.85rem;
+        gap: 4px;
+    }
+
+    .solis-offer-label {
+        font-size: 0.8rem;
+    }
+
+    .solis-offer-icon {
+        width: 26px;
+        height: 26px;
+    }
+
+    .solis-offer-pill {
+        display: none; /* optional: hide small badge on mobile */
+    }
+
+    /* Popup: a bit tighter on small screens */
+    #solis-popup-content {
+        padding: 20px 16px 18px;
+        border-radius: 16px;
+    }
+
+    .solis-submit-buttons {
+        flex-direction: column;
+    }
+}
+
+/* Reduced motion – respect user preference */
+@media (prefers-reduced-motion: reduce) {
+    * {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+    }
+}
